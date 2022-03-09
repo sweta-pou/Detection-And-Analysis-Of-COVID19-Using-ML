@@ -5,6 +5,7 @@ import './main.component.css'
 export default function MainComponent() {
   const [image, setImage] = useState({ preview: "" });
   const [selectedFile, setSelectedFile] = React.useState(null);
+  const [label, setLabel] = React.useState('')
   const [result, setResult] = React.useState(false);
   const handleChange = (e) => {
     setImage({
@@ -15,17 +16,18 @@ export default function MainComponent() {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-
-    let formData = new FormData();
-    formData.append("image", selectedFile);
-    const url = "http://127.0.0.1:8000/api/image/";
-    const config = {
-      headers: { "content-type": "multipart/form-data" },
-    };
+console.log(selectedFile.name)
+    // let formData = new FormData();
+    // formData.append("name", selectedFile.name);
+    const url = "http://127.0.0.1:8000/predict/";
+    // const config = {
+    //   headers: { "content-type": "multipart/form-data" },
+    // };
     axios
-      .post(url, formData, config)
-      .then(() => {
+      .post(url,{ "name":selectedFile.name})
+      .then((response) => {
         setResult(true);
+        setLabel(response.data.class)
       })
       .catch((error) => {
         console.log("error: ", error);
@@ -90,7 +92,7 @@ export default function MainComponent() {
       ) : (
         ""
       )}
-      {result ? <h1>You have COVID</h1> : ""}
+      {result ? <h1>Report:  {label}</h1> : ""}
       {result ? (
         <button
           style={{ marginTop: "50px", width: "250px" }}
