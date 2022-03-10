@@ -60,7 +60,7 @@ console.log(selectedFile.name)
             {result ? (
               ""
             ) : (
-              <p className="text-center">Click Here To Upload Again</p>
+              <p className="text-center" style={{cursor: 'pointer'}}>Click Here To Upload Again</p>
             )}
           </>
         ) : (
@@ -72,6 +72,7 @@ console.log(selectedFile.name)
                 color: "black",
                 fontFamily: "Arial",
                 fontSize: "20px",
+                cursor: 'pointer'
               }}
             >
               Drag your X-Ray here or Click in this area.
