@@ -44,7 +44,7 @@ console.log(selectedFile.name)
     top: "30%",
     left: "50%",
     marginTop: '-100px',
-    marginLeft: "-150px",
+    marginLeft: "-170px",
     padding: "10px",
     border: "4px dashed rgb(124, 123, 123)"}}>
       <label htmlFor="upload-button">
