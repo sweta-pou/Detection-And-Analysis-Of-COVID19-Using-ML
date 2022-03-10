@@ -89,14 +89,14 @@ console.log(selectedFile.name)
       {result ? (
         ""
       ) : image.preview ? (
-        <button onClick={handleUpload}>Upload</button>
+        <button onClick={handleUpload} style={{cursor: 'pointer'}}>Upload</button>
       ) : (
         ""
       )}
       {result ? <h1>Report:  {label}</h1> : ""}
       {result ? (
         <button
-          style={{ marginTop: "50px", width: "250px" }}
+          style={{ marginTop: "50px", width: "250px",cursor: 'pointer' }}
           onClick={newPhoto}
         >
           Click Here To Upload New X-Ray
